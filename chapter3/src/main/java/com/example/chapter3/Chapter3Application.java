@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @EnableConfigurationProperties
@@ -20,10 +21,12 @@ public class Chapter3Application {
     }
 
     @Autowired
-    public Chapter3Application(ConfigurationProjectProperties properties) {
+    public Chapter3Application(ConfigurationProjectProperties properties,
+                               Environment environment) {
         log.info("ConfigurationProjectProperties.projectName = " + properties.getProjectName());
+        log.info("spring.application.name: " + environment.getProperty("spring.application.name"));
+        log.info("property.from.custom.source: " + environment.getProperty("property.from.custom.source"));
     }
-
 }
 
 @Component

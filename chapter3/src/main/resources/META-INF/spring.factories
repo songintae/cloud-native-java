@@ -1,0 +1,2 @@
+#Bootstrap Component
+org.springframework.cloud.bootstrap.BootstrapConfiguration=com.example.chapter3.boot.CustomPropertySourceLocator
