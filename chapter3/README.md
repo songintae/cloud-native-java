@@ -21,3 +21,11 @@ Environment 추상화는 실행되는 애플리케이션과 그 애플리케이�
 #### 프로파일
 
 Environment에는 프로파일을 사용할 수 있다. 프로파일을 사용하면 빈을 그룹지어 사용할 수 있으므로, 실행 환경에 따라 달라지는 빈과 빈 그래프를 프로파일 변경만으로 쉽게 교체 적용할 수 있다
+
+### 스프링 부트 방식의 설정
+
+스프링 부트는 별다른 설정 없이도 몇가지 지정된 위치에 정의된 설정 정보를 자동으로 읽어온다. (우선순위가 있으므로 주의 필요)
+
+- https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config
+
+클래스 패스에 SnakeYAML 라이브러리가 있으면 자동으로 YAML 파일에서도 properties 파일과 같은 방식으로 속성 정보를 가져올 수 있다.
