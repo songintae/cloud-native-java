@@ -65,6 +65,8 @@ Environment에는 프로파일을 사용할 수 있다. 프로파일을 사용�
 - spring actuator
 - jconsole
 
+실제 해당 엔드포인트로 들어오면 ContextRefresher.refresh 메서드가 호출한다. (RefreshEndpoint 클래스를 보면 확인 가능하다)
+
 Refresh 관련 공식 문서 : https://docs.spring.io/spring-cloud-commons/docs/3.0.3/reference/html/#refresh-scope \
 Endpoint 관련 공식 문서 : https://docs.spring.io/spring-cloud-commons/docs/3.0.3/reference/html/#endpoints
 
