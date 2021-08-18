@@ -55,3 +55,28 @@ Environment에는 프로파일을 사용할 수 있다. 프로파일을 사용�
 ##### 스프링 클라우드 서버 & 클라이언트 예제코드
 
 - https://github.com/songintae/spring-cloud-config
+
+### 새로고침 가능한 설정
+
+스프링 클라우드는 @RefreshScope 애노테이션으로 표현되는 리프래시 스코프를 통해 애플리케이션 재시작 없이 설정정보를 변경할 수 있다. 리프래시 스코프 안에 있는 빈은 RefreshScopeRefreshed
+이벤트를 통지 받으면 *기존 빈을 완전히 폐지하고 다시 생성*한다.\
+스프링에서는 RefreshScopeRefreshed 발행할 수 있는 다양한 Endpoint를 제공하는데 아래와 같은 종류가 있다
+
+- spring actuator
+- jconsole
+
+Refresh 관련 공식 문서 : https://docs.spring.io/spring-cloud-commons/docs/3.0.3/reference/html/#refresh-scope \
+Endpoint 관련 공식 문서 : https://docs.spring.io/spring-cloud-commons/docs/3.0.3/reference/html/#endpoints
+
+#### 스프링 이벤트 버스
+
+클라우드 네이티브 환경에서는 수십에서 수백대의 서버가 올라와 있는데, 위에서 설명한 방식으로 Refresh를 하는것은 현실적으로 어렵다. 스프링은 이러한 문제를 해결하기 위헤 스프링 클라우드 버스라는 기능을
+제공한다. 모든 서비스는 스프링 클라우드 스트림이 장착된 버스를 통해 연결이 되고, 단 한번의 이벤트로 버스에 연결되있는 모든 서비스에 이벤트를 통지를 할 수 있다.
+
+Spring Cloud Bus 공식 문서 : https://docs.spring.io/spring-cloud-bus/docs/3.0.3-SNAPSHOT/reference/html/
+Cloud Config에서 Cloud Bus Notification 관련
+문서 : https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_push_notifications_and_spring_cloud_bus
+
+#### 예제 코드
+
+- https://github.com/songintae/spring-cloud-config
