@@ -79,6 +79,22 @@ Spring Cloud Bus 공식 문서 : https://docs.spring.io/spring-cloud-bus/docs/3.
 Cloud Config에서 Cloud Bus Notification 관련
 문서 : https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_push_notifications_and_spring_cloud_bus
 
+Spring Cloud Bus는 *Spring Cloud Stream*을 기반으로 동작한다 따라서 하고 이에 따라 적절한 구현체를 선택해야하는데, Rabbitmq 또는 Kafka를 사용할 수 있다.\
+스프링 클라우드는 다음과 같은 기능들을 제공한다
+
+1. Endpoint
+   1. /actuator/busrefresh : 설정 정보를 refresh event를 전송할 수 있는 endpoint
+   2. /actuator/busenv : 환경 정보의 pair(key/value) 이벤트를 전송할 수 있는 endpoint
+2. Addressing an Instance
+   1. Event Bus에 등록된 서비스를 식별할 수 있는 ServiceId를 지정할 수 있다. (default 정책 존재)
+      1. Service Id는 unique 해야하는 특성이 있다.
+   2. 해당 서비스 ID를 이용하여 이벤트를 원하는 대상에만 전송할 수 있다
+3. Tracing Bus Events
+   1. TraceRepository가 존재한다면, 옵션을 통해 Bus로 발행된 Event를 Trace 할 수 있다
+4. Broadcasting Your Own Events
+   1. Bus에서 제공하는 Event가 아닌 RemoteApplicationEvent의 구현체로 Custom Event를 정의할 수 있다
+      1. Custom RemoteApplicationEvent는 package 규칙 또는 RemoteApplicationEventScan 애노테이션을 기반으로 등록 가능
+
 #### 예제 코드
 
 - https://github.com/songintae/spring-cloud-config
