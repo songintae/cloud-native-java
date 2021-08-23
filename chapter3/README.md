@@ -75,9 +75,9 @@ Endpoint 관련 공식 문서 : https://docs.spring.io/spring-cloud-commons/docs
 클라우드 네이티브 환경에서는 수십에서 수백대의 서버가 올라와 있는데, 위에서 설명한 방식으로 Refresh를 하는것은 현실적으로 어렵다. 스프링은 이러한 문제를 해결하기 위헤 스프링 클라우드 버스라는 기능을
 제공한다. 모든 서비스는 스프링 클라우드 스트림이 장착된 버스를 통해 연결이 되고, 단 한번의 이벤트로 버스에 연결되있는 모든 서비스에 이벤트를 통지를 할 수 있다.
 
-Spring Cloud Bus 공식 문서 : https://docs.spring.io/spring-cloud-bus/docs/3.0.3-SNAPSHOT/reference/html/
-Cloud Config에서 Cloud Bus Notification 관련
-문서 : https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_push_notifications_and_spring_cloud_bus
+- Spring Cloud Bus 공식 문서 : https://docs.spring.io/spring-cloud-bus/docs/3.0.3-SNAPSHOT/reference/html
+- Cloud Config에서 Cloud Bus Notification 관련
+  문서 : https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_push_notifications_and_spring_cloud_bus
 
 Spring Cloud Bus는 *Spring Cloud Stream*을 기반으로 동작한다 따라서 하고 이에 따라 적절한 구현체를 선택해야하는데, Rabbitmq 또는 Kafka를 사용할 수 있다.\
 스프링 클라우드는 다음과 같은 기능들을 제공한다
@@ -86,7 +86,7 @@ Spring Cloud Bus는 *Spring Cloud Stream*을 기반으로 동작한다 따라서
    1. /actuator/busrefresh : 설정 정보를 refresh event를 전송할 수 있는 endpoint
    2. /actuator/busenv : 환경 정보의 pair(key/value) 이벤트를 전송할 수 있는 endpoint
 2. Addressing an Instance
-   1. Event Bus에 등록된 서비스를 식별할 수 있는 ServiceId를 지정할 수 있다. (default 정책 존재)
+   1. Cloud Bus에 등록된 서비스를 식별할 수 있는 ServiceId를 지정할 수 있다. (default 정책 존재)
       1. Service Id는 unique 해야하는 특성이 있다.
    2. 해당 서비스 ID를 이용하여 이벤트를 원하는 대상에만 전송할 수 있다
 3. Tracing Bus Events
