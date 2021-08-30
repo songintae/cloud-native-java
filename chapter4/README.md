@@ -46,3 +46,5 @@ Mock)라이브러리로 대체할 수 있게 해주므로 12요소 애플리케�
 
 SpringBootTest로 테스트 컨텍스트에 맞는 서블릿 환경을 설정할 수 있다.
 ![img.png](img.png)
+참고
+문서 : https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.test-scope-dependencies
