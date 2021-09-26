@@ -12,6 +12,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
+/**
+ * https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications.autoconfigured-rest-client
+ */
 @RestClientTest(UserService.class)
 @AutoConfigureWebClient(registerRestTemplate = true)
 class UserServiceTest {

@@ -10,6 +10,9 @@ import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications.json-tests
+ */
 @JsonTest
 class UserTest {
     private User user;
