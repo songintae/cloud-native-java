@@ -23,9 +23,9 @@
 
 ### 통합 테스트
 
-통합테스트와 단위테스트는 결정적 차이가있다, 통합테스트는 여러 컴포넌트의 연동을 통합하기 위해 스프링 컨테긋트를 필요로 하는 반면에 단위 테스트는 스프링 라이브러리에 대한 의존 없이 개별 컴포넌트만을 테스트한다는
+통합테스트와 단위테스트는 결정적 차이가있다, 통합테스트는 여러 컴포넌트의 연동을 통합하기 위해 스프링 컨텍스트를 필요로 하는 반면에 단위 테스트는 스프링 라이브러리에 대한 의존 없이 개별 컴포넌트만을 테스트한다는
 것이다.\
-클라우드 네이티브 애플리케이션은 12요소 애플리케이션의 개발/운영 짝맞춤 권그를 엄격하게 따르는것이 중요한다. 스프링 부트 기반의 클라우드 네이티브 애플리케이션을 만들 때는 자동 설정이 외부 의존 라이브러리를 모의(
+클라우드 네이티브 애플리케이션은 12요소 애플리케이션의 개발/운영 짝맞춤 권고를 엄격하게 따르는것이 중요한다. 스프링 부트 기반의 클라우드 네이티브 애플리케이션을 만들 때는 자동 설정이 외부 의존 라이브러리를 모의(
 Mock)라이브러리로 대체할 수 있게 해주므로 12요소 애플리케이션의 개발/운영 짝맞춤 권고를 변형해서 적용할 수 있다.
 
 #### 테스트 슬라이스
@@ -48,3 +48,20 @@ SpringBootTest로 테스트 컨텍스트에 맞는 서블릿 환경을 설정할
 ![img.png](img.png)
 참고
 문서 : https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.test-scope-dependencies
+
+#### 슬라이스
+
+스프링 부트는 애플리케이션 테스트 슬라이스를 위한 여러가지 애노테이션을 제공한다.\
+
+- Spring Boot에서 제공하는
+  Slice : https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications.autoconfigured-tests
+- Spring Boot Slice Test별로 등록되는
+  AutoConfiguration: https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html#test-auto-configuration
+
+#### 통합테스트 참고할점
+
+Application이 점점 커지면서 통합테스트의 개수가 많아질수록 컨텍스트를 올리는데 오랜 시간이 걸린다.\
+스프링에서는 기본적으로 캐시 기능을 적용하는데, 해당기능을 사용하지 못하는 케이스가 있으므로 주의하면서 통합테스트를 작성해야한다.
+
+- Spring Integration Test Context
+  Caching : https://docs.spring.io/spring-framework/docs/current/reference/html/testing.html#testcontext-ctx-management-caching

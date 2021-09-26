@@ -4,7 +4,7 @@ plugins {
 
 version '0.0.1-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
@@ -12,6 +12,12 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-json'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    testImplementation 'com.h2database:h2'
+
+
 }
 
 jar {
