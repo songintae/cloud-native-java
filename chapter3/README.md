@@ -48,9 +48,9 @@ Environment에는 프로파일을 사용할 수 있다. 프로파일을 사용�
 
 ##### 참고 자료
 
-- Spring Cloud Context & Spring Cloud
-  Common : https://docs.spring.io/spring-cloud-commons/docs/3.0.3/reference/html/#spring-cloud-context-application-context-services
-- Spring Cloud Config : https://docs.spring.io/spring-cloud-config/docs/3.0.4/reference/html/#_quick_start
+- [**Spring Cloud Context & Spring Cloud
+  Common**](https://docs.spring.io/spring-cloud-commons/docs/3.0.3/reference/html/#spring-cloud-context-application-context-services)
+- [**Spring Cloud Config**](https://docs.spring.io/spring-cloud-config/docs/3.0.4/reference/html/#_quick_start)
 
 ##### 스프링 클라우드 서버 & 클라이언트 예제코드
 
@@ -75,9 +75,9 @@ Endpoint 관련 공식 문서 : https://docs.spring.io/spring-cloud-commons/docs
 클라우드 네이티브 환경에서는 수십에서 수백대의 서버가 올라와 있는데, 위에서 설명한 방식으로 Refresh를 하는것은 현실적으로 어렵다. 스프링은 이러한 문제를 해결하기 위헤 스프링 클라우드 버스라는 기능을
 제공한다. 모든 서비스는 스프링 클라우드 스트림이 장착된 버스를 통해 연결이 되고, 단 한번의 이벤트로 버스에 연결되있는 모든 서비스에 이벤트를 통지를 할 수 있다.
 
-- Spring Cloud Bus 공식 문서 : https://docs.spring.io/spring-cloud-bus/docs/3.0.3-SNAPSHOT/reference/html
-- Cloud Config에서 Cloud Bus Notification 관련
-  문서 : https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_push_notifications_and_spring_cloud_bus
+- [**Spring Cloud Bus 공식 문서**](https://docs.spring.io/spring-cloud-bus/docs/3.0.3-SNAPSHOT/reference/html)
+- [**Cloud Config에서 Cloud Bus Notification 관련
+  문서**](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_push_notifications_and_spring_cloud_bus)
 
 Spring Cloud Bus는 *Spring Cloud Stream*을 기반으로 동작한다 따라서 하고 이에 따라 적절한 구현체를 선택해야하는데, Rabbitmq 또는 Kafka를 사용할 수 있다.\
 스프링 클라우드는 다음과 같은 기능들을 제공한다
