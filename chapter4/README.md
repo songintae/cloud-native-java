@@ -80,4 +80,58 @@ Consistency)를 통해 일관성을 유지할 수 있다.\
 - 상태가 결과적 일관성을 유지한다는것을 보장할 수 있는 테스트 조건 설계 필요
 - 서로 다른 애플리케이션끼리의 통합을 어떤방법으로 테스트 할것인가?
 
-위에서 언급한 요소들을은 **컨슈머 주도 계약 테스트** 라는 방법을 통해 해결할 수 있다. 
+위에서 언급한 요소들을은 **컨슈머 주도 계약 테스트** 라는 방법을 통해 해결할 수 있다.
+
+#### 컨슈머 주도 계약 테스트
+
+컨슈머 주도 계약 테스트를 알아보기 전에 일단 현재 우리가 직면한 환경을 기반으로 왜 컨슈머 주도 계약이라는 개념이 나타났는지 알아보자.\
+
+우리가 마이크로 서비스(특히 웹서비스)를 만들어가면서 점점 아래와 같은 환경으로 변해간다.
+
+- 마이크로 서비스팀 점점 작아지고 많아짐
+- API Contract 개선이 더 잦아짐(Agile)
+- 다른 시간대(Timezone)의 팀간의 협업이 요구됨
+
+이러한 환경에 적응하기 위해 다음과 같은 풀기 어려운 문제들이 있다
+
+- Consumer에 영향없이 Producer서비스에 새로운것을 추가하거나 삭제할 수 있는가?
+- Consumer가 Producer서비스를 어떻게 사용하고 있는지를 Producer 서비스 개발자가 알 수 있을까?
+- Producer 서비스의 릴리즈 사이클을 짧게 할 수 있을까?
+
+[**서비스 디자인 패턴**](http://www.servicedesignpatterns.com/WebServiceEvolution) 이라는 책에서는 웹서비스가 진화를 위한 다음과 같은 패턴을 제시한다.
+
+- Single Message Argument
+- Dataset Amendment
+- Tolerant Reader
+- Schema versioning
+- Consumer-Driven Contract\
+
+여기서 컨슈머 주도 계약이라는 개념이 등장하게 되는데, 이는 서비스 사이에 느슨한 결합을 유지하면서 **컨슈머 기반으로 제공된 공개된 계약**을 사용해서 컨슈머와 프로듀서 사이의 예상 동작을 유지하고 판정하는
+패턴이다.\
+컨슈머 주도 계약은 위에서 언급한 문제를 아래와 같은 장점들을 통해 해결할 수 있다.
+
+- Producer는 불필요한 서비스 개발을 줄일 수 있다. (Make the right thing)
+- Producer는 개선에 대한 통찰을 얻을 수 있음
+- agile실현을 위한 자동화를 가속화 한다.
+
+컨슈머 주도 계약를 올바르게 적용하기 위해서는 아래와 같은 요소들을 실천해야한다
+
+- API 스팩 문서화
+- REST API 테스트
+- API 스펙과 일치하는 테스트 코드 유지
+- API 동작을 모니터링/제어
+
+컨슈머 주도 계약 테스트는 위와 같은 요소중 API 스펙과 일치하는 테스트 코드를 유지하는데에 대한 방안을 제시해준다.\
+컨슈머 주도 계약 테스트에서는 **프로듀서가 먼저 계약과 그 계약을 사용하는 통합테스트를 정의하면서 스텁을 공개**하고, **Consumer는 프로듀서가 버전별로 공개한 스텁을 공유 저장소에서 내려받아서 모의
+프로듀서를 통해 테스트를 작성**한다. 이를통해 API 스펙과 일치하는 테스트 코드를 유지할 수 있게된다.
+
+스프링 에서는 Spring Cloud Contract 라는 프로젝트를 통애 컨슈머 주도 계약 테스트를 작성할 수있는 다양한 기능들을 제공한다.
+
+##### Consumer-Driven Contract 참고 자료
+
+- [**서비스 디자인 패턴**](http://www.servicedesignpatterns.com/WebServiceEvolution)
+- [**이안 로빈슨의 컨슈머 주도 계약 설명**](https://martinfowler.com/articles/consumerDrivenContracts.html)
+- [**Spring Camp 2018 Consumer Driven Contract 기법을 활용한 마이크로서비스 API의 진화**](https://www.youtube.com/watch?v=7F27S81enVo)
+- [**Spring Camp 2018 Consumer Driven Contract 기법을 활용한 마이크로서비스 API의 진화
+  Slide**](https://www.slideshare.net/MinseokKim4/consumerdrivencontract-with-spring-cloud-contract-at-spring-camp-2018)
+
