@@ -15,11 +15,11 @@
 스프링 부트 애플리케이션의 테스트는 크게 단위 테스트와 통합 테스트로 구분할 수 있다. 실행중에 스프링 애플리케이션 컨텍스트에 접근하는 모든 테스트는 통합 테스트라고 할 수 있다.\
 스프링 통합테스트는 JUnit 프레임워크와 같이 동작하고 기본적으로 JUnit5를 지원한다.
 
-- 스프링 테스트 공식
-  문서 :  https://docs.spring.io/spring-framework/docs/5.3.10-SNAPSHOT/reference/html/testing.html#testing-introduction
-- SpringBoot Test Feature
-  문서 : https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications
-- JUnit5 문서 : https://junit.org/junit5/docs/current/user-guide/#overview
+- [**스프링 테스트 공식
+  문서**](https://docs.spring.io/spring-framework/docs/5.3.10-SNAPSHOT/reference/html/testing.html#testing-introduction)
+- [**SpringBoot Test
+  Feature**](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications)
+- [**JUnit5 문서**](https://junit.org/junit5/docs/current/user-guide/#overview)
 
 ### 통합 테스트
 
@@ -46,22 +46,38 @@ Mock)라이브러리로 대체할 수 있게 해주므로 12요소 애플리케�
 
 SpringBootTest로 테스트 컨텍스트에 맞는 서블릿 환경을 설정할 수 있다.
 ![img.png](img.png)
-참고
-문서 : https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.test-scope-dependencies
+[**참고
+문서**](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.test-scope-dependencies)
 
 #### 슬라이스
 
 스프링 부트는 애플리케이션 테스트 슬라이스를 위한 여러가지 애노테이션을 제공한다.\
 
-- Spring Boot에서 제공하는
-  Slice : https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications.autoconfigured-tests
-- Spring Boot Slice Test별로 등록되는
-  AutoConfiguration: https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html#test-auto-configuration
+- [**Spring Boot에서 제공하는
+  Slice**](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications.autoconfigured-tests)
+- [**Spring Boot Slice Test별로 등록되는
+  AutoConfiguration**](https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html#test-auto-configuration)
 
 #### 통합테스트 참고할점
 
 Application이 점점 커지면서 통합테스트의 개수가 많아질수록 컨텍스트를 올리는데 오랜 시간이 걸린다.\
 스프링에서는 기본적으로 캐시 기능을 적용하는데, 해당기능을 사용하지 못하는 케이스가 있으므로 주의하면서 통합테스트를 작성해야한다.
 
-- Spring Integration Test Context
-  Caching : https://docs.spring.io/spring-framework/docs/current/reference/html/testing.html#testcontext-ctx-management-caching
+- [**Spring Integration Test Context
+  Caching**](https://docs.spring.io/spring-framework/docs/current/reference/html/testing.html#testcontext-ctx-management-caching)
+
+### 전 구간 테스트
+
+전 구간(end-to-end) 테스트는 분산 애플리케이션의 일부 컴포턴트를 변경하더라도 시스템이 동일한 결과를 반환하도록 보장해주므로 아주 중요하다.\
+전구간 테스트는 에플리케이션의 **비즈니스 기능 검증에 초점**을 맞춘다. 통합 테스트와는 반대로 전 구간 테스트는 **사용자의 관점에서 기능을 테스트**한다
+
+#### 분산 시스템 테스트
+
+분산시스템, 즉 분리된 마이크로서비스에 상태를 분산 저장하는 클라우드 네이티브 애플리케이션을 구축할떄는 일관성(상태 등)을 유지하는 것이 중요하다. 분산시스템에서는 결과적 일관성(Eventual
+Consistency)를 통해 일관성을 유지할 수 있다.\
+따라서 분산 시스템 테스트에서는 상태가 일관성을 유지한다는 것을 보장할 수 있는 테스트를 짜야할 뿐만아니라, 분산시스템 테스트의 제약사항을 해결해야한다.
+
+- 상태가 결과적 일관성을 유지한다는것을 보장할 수 있는 테스트 조건 설계 필요
+- 서로 다른 애플리케이션끼리의 통합을 어떤방법으로 테스트 할것인가?
+
+위에서 언급한 요소들을은 **컨슈머 주도 계약 테스트** 라는 방법을 통해 해결할 수 있다. 
