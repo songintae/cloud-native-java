@@ -147,5 +147,5 @@ create two contracts, one for the positive case and one for the negative case. C
 between applications, not to simulate full behavior.**
 
 - [**Spring Cloud Contract Overview**](https://spring.io/projects/spring-cloud-contract)
-- [**Spring Cloud Contract Introduce**](Introducing Spring Cloud Contract)
+- [**Spring Cloud Contract Introduce**](https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/getting-started.html#getting-started-introducing-spring-cloud-contract)
 - [**Spring Cloud Contract 에제코드 with Gradle**](https://github.com/songintae/spring-cloud-contract)
