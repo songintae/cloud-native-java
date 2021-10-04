@@ -140,6 +140,12 @@ Consistency)를 통해 일관성을 유지할 수 있다.\
 프로듀서를 통해 테스트를 작성**하도록 돕는다. 이를통해 Producer와 Consumer는 계약에 따른 API 또는 Message 통신을 하는지를 확안 및 보장 가능하고, 스펙이 변경됬을때 테스트를 통해 빠르게
 피드백을 받을 수 있다.
 
+한가지 주의할점은 공식문서에도 강조하고 있듯이 스프링 클라우드 컨트렉트를 비즈니스 기능 검증의 목적으로 사용하면 안된다.\
+**Spring Cloud Contract’s purpose is NOT to start writing business features in the contracts. Assume that we have a
+business use case of fraud check. If a user can be a fraud for 100 different reasons, we would assume that you would
+create two contracts, one for the positive case and one for the negative case. Contract tests are used to test contracts
+between applications, not to simulate full behavior.**
+
 - [**Spring Cloud Contract Overview**](https://spring.io/projects/spring-cloud-contract)
 - [**Spring Cloud Contract Introduce**](Introducing Spring Cloud Contract)
 - [**Spring Cloud Contract 에제코드 with Gradle**](https://github.com/songintae/spring-cloud-contract)
