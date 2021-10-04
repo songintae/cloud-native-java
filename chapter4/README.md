@@ -121,11 +121,7 @@ Consistency)를 통해 일관성을 유지할 수 있다.\
 - API 스펙과 일치하는 테스트 코드 유지
 - API 동작을 모니터링/제어
 
-컨슈머 주도 계약 테스트는 위와 같은 요소중 API 스펙과 일치하는 테스트 코드를 유지하는데에 대한 방안을 제시해준다.\
-컨슈머 주도 계약 테스트에서는 **프로듀서가 먼저 계약과 그 계약을 사용하는 통합테스트를 정의하면서 스텁을 공개**하고, **Consumer는 프로듀서가 버전별로 공개한 스텁을 공유 저장소에서 내려받아서 모의
-프로듀서를 통해 테스트를 작성**한다. 이를통해 API 스펙과 일치하는 테스트 코드를 유지할 수 있게된다.
-
-스프링 에서는 Spring Cloud Contract 라는 프로젝트를 통애 컨슈머 주도 계약 테스트를 작성할 수있는 다양한 기능들을 제공한다.
+이를 달성하기 위해 Spring Cloud Contract를 사용하여 컨슈머 주도 개발을 보다 올바르게 개발을 하도록 이끌어나갈 수 있다.
 
 ##### Consumer-Driven Contract 참고 자료
 
@@ -135,3 +131,15 @@ Consistency)를 통해 일관성을 유지할 수 있다.\
 - [**Spring Camp 2018 Consumer Driven Contract 기법을 활용한 마이크로서비스 API의 진화
   Slide**](https://www.slideshare.net/MinseokKim4/consumerdrivencontract-with-spring-cloud-contract-at-spring-camp-2018)
 
+#### Sprig Cloud Contract
+
+스프링 클라우드 컨트렉트는 사용자가 컨슈머 주도 개발을 성공적으로 구현하는데 도움이 되는 솔루션을 제공하는 프로젝트이다. REST API나 메시징 교환 같은 분산 애플리케이션 컴포넌트를 통합 테스트 할때 공통적으로
+사용된다.
+
+스프링 클라우드 컨트렉트에서는 **프로듀서가 먼저 계약과 그 계약을 사용하는 통합테스트를 정의하면서 스텁을 공개**하고, **Consumer는 프로듀서가 버전별로 공개한 스텁을 공유 저장소에서 내려받아서 모의
+프로듀서를 통해 테스트를 작성**하도록 돕는다. 이를통해 Producer와 Consumer는 계약에 따른 API 또는 Message 통신을 하는지를 확안 및 보장 가능하고, 스펙이 변경됬을때 테스트를 통해 빠르게
+피드백을 받을 수 있다.
+
+- [**Spring Cloud Contract Overview**](https://spring.io/projects/spring-cloud-contract)
+- [**Spring Cloud Contract Introduce**](Introducing Spring Cloud Contract)
+- [**Spring Cloud Contract 에제코드 with Gradle**](https://github.com/songintae/spring-cloud-contract)
