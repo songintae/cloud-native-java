@@ -9,3 +9,7 @@
 ## 4장
 
 [**테스트**](https://github.com/songintae/cloud-native-java/blob/main/chapter4/README.md)
+
+## 5장
+
+[**애플리케이션 마이그레이션**](https://github.com/songintae/cloud-native-java/blob/main/chapter5/README.md)

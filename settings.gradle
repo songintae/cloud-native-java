@@ -1,3 +1,5 @@
 rootProject.name = 'cloud-native-java'
 include("chapter3")
 include("chapter4")
+include("chapter5")
+

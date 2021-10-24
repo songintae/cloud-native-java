@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+jar {
+    enabled = false
+}
+
+/**
+ * bootBuildImage 참고 문서
+ * https://docs.spring.io/spring-boot/docs/2.5.5/gradle-plugin/reference/htmlsingle/#build-image.examples.buildpacks
+ */
+bootBuildImage {
+    environment = ["BP_JVM_VERSION" : "11.*"]
+    imageName = "cloud-native-java/${project.name}"
+}
