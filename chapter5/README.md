@@ -49,4 +49,12 @@
 
 - [Spring HTTP Invoker (Deprecated)](https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#remoting-httpinvoker)
 
+##### 스프링 세션으로 HTTP 세션 다루기
+
+전통적인 애플리케이션 서버에서는 세션 복제가 단일 클러스터 내에서의 브로드캐스팅 네트워크 기능이었다. 아쉽지만 이런 전통적인 세션 복제는 성능이나 견고함, 이식성이 썩 좋지 않다.\
+스프링 세션은 세션 동기화를 위해 SPI(Service Provider Interface)에 의존하는 서블릿 HTTP 세션을 쉽게 대체할 수 있다.
+
+- [SPI 란?](https://en.wikipedia.org/wiki/Service_provider_interface)
+- [Http Session Integration](https://docs.spring.io/spring-session/docs/2.5.3/reference/html5/#httpsession)
+
 
