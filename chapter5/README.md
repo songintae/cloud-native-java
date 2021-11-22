@@ -57,4 +57,9 @@
 - [SPI 란?](https://en.wikipedia.org/wiki/Service_provider_interface)
 - [Http Session Integration](https://docs.spring.io/spring-session/docs/2.5.3/reference/html5/#httpsession)
 
+##### 자바 메시지 서비스
 
+스프링에서는 JMS API를 간단하게 다룰 수 있는 Integration을 제공한다.
+
+- [JMS](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EB%A9%94%EC%8B%9C%EC%A7%80_%EC%84%9C%EB%B9%84%EC%8A%A4)
+- [Spring JMS Integration](https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#jms)
