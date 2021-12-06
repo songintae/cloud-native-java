@@ -63,3 +63,11 @@
 
 - [JMS](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EB%A9%94%EC%8B%9C%EC%A7%80_%EC%84%9C%EB%B9%84%EC%8A%A4)
 - [Spring JMS Integration](https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#jms)
+
+##### X/Open XA 프로토콜과 JTA를 사용하는 분산 트랜잭션
+
+X/Open XA 프로토콜은 분산 트랜잭션 처리를 위해 오픈그룹에서 재정의한 명세를 말한다. XA는 2단계 커밋을 이용해서 분산된 모든 자원이 하나의 트랜잭션 안에서 ACID하게 처리될 수 있게 한다. \
+스프링에서는 JTA를 사용하여 분산 트랜잭션을 제공한다.
+
+- [X/Open XA 프로토콜](https://ko.wikipedia.org/wiki/X/Open_XA)
+- [Distributed Transactions with JTA](https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/boot-features-jta.html)
